@@ -1,0 +1,151 @@
+{
+  template: `
+  <!-- This template use https://bootstrap-vue.js.org/ -->
+  
+  <div v-if="pybossa.userProgressInPercent < 100">
+    <b-row class="d-flex justify-content-center">
+      <!-- Left column - Questions-->
+      <b-col
+        :md="questionList.length > 0 ? 5:12"
+        :lg="questionList.length > 0 ? 5:6"
+        class="mt-4 mt-lg-0 order-2"
+        :class="questionList.length > 0 ? 'order-md-1':'order-lg-1'"
+      >
+        <!-- Questions with answers -->
+        <b-form-group
+          :key="question.id"
+          v-for="question in questionList"
+          label-size="lg"
+          class="mt-2 mb-4"
+        >
+          <label>
+            {{question.question}}
+            <span v-if="question.required" class="text-primary font-weight-bold h5">*</span>
+          </label>
+          <common-editor-elements :answers="answers" :question="question" :context="context" />
+        </b-form-group>
+        <!-- Map Section when NO questions exist -->
+        <div v-if="questionList.length == 0">
+          <!-- Map question -->
+          <label> 
+            {{mapSettings.question}}
+            <span v-if="mapSettings.required" class="text-primary font-weight-bold h5">*</span>
+          </label>
+          <!-- Map -->
+          <maps
+            class="my-2"
+            style="height: 50vh"
+            :can_mark="mapSettings.markers"
+            :can_draw="mapSettings.area"
+            :mapSettings="mapSettings"
+            :locations="markedPlaces"
+            :area="area"
+            :taskLoaded="pybossa.taskLoaded"
+          >
+          </maps>
+        </div>
+      </b-col>
+      <!-- right columns - Media -->
+      <b-col
+        :md="questionList.length > 0 ? 7:12"
+        :lg="questionList.length > 0 ? 7:6"
+        class="order-1"
+        :class="questionList.length > 0 ? 'order-md-2':'order-lg-2'"
+      >
+        <div
+          class="text-center"
+          style="position: sticky; top: 15%"
+        >
+          <media-presenter
+            :context="pybossa"
+            :link="validUrl"
+            :loading="!pybossa.taskLoaded">
+          </media-presenter>
+        </div>
+      </b-col>
+    </b-row>
+
+    <!-- Map Section -->
+    <b-row class="my-4" v-if="questionList.length > 0">
+      <b-col>
+        <!-- Map question -->
+        <label>
+          {{mapSettings.question}}
+          <span v-if="mapSettings.required" class="text-primary font-weight-bold h5">*</span>        
+        </label>
+        <!-- Map -->
+        <maps
+          class="my-2"
+          style="height: 500px"
+          :can_mark="mapSettings.markers"
+          :can_draw="mapSettings.area"
+          :mapSettings="mapSettings"
+          :locations="markedPlaces"
+          :area="area"
+          :taskLoaded="pybossa.taskLoaded"
+        >
+        </maps>
+      </b-col>
+    </b-row>
+
+    <b-row>
+      <b-col>
+        <!-- Form validation errors -->
+        <b-alert variant="danger" v-model="showAlert" class="mt-2" dismissible>
+          {{$t('template-editor-text-8')}}
+        </b-alert>
+
+        <!-- Submit button -->
+        <b-button @click="submit" variant="success" class="mt-2">{{ $t('submit-btn') }}</b-button>
+        <!-- Skip button -->
+        <b-button @click="skip" variant="secondary" class="mt-2">{{$t('skip-btn')}}</b-button>
+
+        <!-- User progress -->
+        <p class="mt-2">
+          {{$t('template-editor-text-2')}}:
+          <b-badge variant="primary">{{ pybossa.userProgress.done }}</b-badge>
+          {{$t('template-editor-text-2a')}}
+          <b-badge variant="primary">{{ pybossa.userProgress.total }}</b-badge>
+          {{$t('template-editor-text-3')}}
+        </p>
+        <b-progress :value="pybossa.userProgressInPercent" :max="100"></b-progress>
+      </b-col>
+    </b-row>
+  </div>
+
+  <!-- Task end message -->
+  <b-row v-else>
+    <b-col>
+      <b-jumbotron
+        :header="$t('template-editor-text-6')"
+        :lead="$t('template-editor-text-7')"
+      ></b-jumbotron>
+    </b-col>
+  </b-row>`,
+
+  data: () => { return {"mapSettings":{},"questions":[{"question":"","answers":[""]}],"questionList":[],"answers":[],"markedPlaces":[],"area":{"latlngs":[]},"showAlert":false}},
+
+  methods: {
+	skipTask: function(){this.pybossa.saveTask(null)},
+	submit: function(){if(this.isFormValid()){if(this.mapSettings.required&&this.mapSettings.markers&&0==this.markedPlaces.length)return void(this.showAlert=!0);if(this.mapSettings.required&&this.mapSettings.area&&0==this.area.latlngs.length)return void(this.showAlert=!0);this.answers.push({question:this.mapSettings.question,coordinates:this.markedPlaces,area:this.area}),this.pybossa.saveTask(this.answers),this.initialize()}else this.showAlert=!0},
+	skip: function(){this.pybossa.skip(),this.initialize()},
+	isFormValid: function(){var t=this,e=!0;return this.questionList.every(function(s){var i=t.answers.find(function(t){return t.qid==s.id})||[];return!(s.required&&(!i.value||i.value.length<=0))||(e=!1,!1)}),e},
+	initialize: function(){this.showAlert=!1;var t=this.pybossa;this.questionList=this.questions.filter(function(e){return t.isConditionEmpty(e)}),this.answers=this.questions.map(function(t){var e={qid:t.id,question:t.question,value:null};return"multiple_choice"===t.type&&(e.value=[]),e}),this.markedPlaces=[],this.area={latlngs:[]},window.scrollTo({top:0,behavior:"smooth"})},
+  },
+
+  computed: {
+	task: function(){return this.pybossa.task},
+	context: function(){return this},
+	validUrl: function(){return this.task&&this.task.info?this.task.info.url||this.task.info.video_url||this.task.info.audio_url||this.task.info.link_raw:""},
+  },
+
+  watch: {
+  },
+
+  created: function(){this.initialize()},
+
+  mounted: function(){this.pybossa.run()},
+
+  props: {"pybossa":{"required":true}}
+
+}
