@@ -34,8 +34,11 @@
   
           <b-row>
           <!-- right columns - Media -->
-          <b-col xl="6" lg="12" md="12" sm="12">
-          <div @click="submitAnswer('A')" >
+          <b-col xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center align-items-center">
+          
+          <div 
+          :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
+          :style="[ hoverA ? {opacity: 0.9} : {opacity: 1.0} ]">
             <maps
               class="my-2"
               :resetToInitial="false"
@@ -44,14 +47,28 @@
               :scroll-to-zoom="false"
               :hide-interaction="true"
               :hide-geo-search="true"
-              style="height: 700px; width: 700px; "
+              :style="{ height: imgSize + 'px' , width: imgSize + 'px'}"
               :mapSettings="mapSettingsA"
               :taskLoaded="pybossa.taskLoaded"
             ></maps>
             </div>
+            <!-- Hover Effect A -->
+            <div 
+            @click="submitAnswer('A')" 
+            @mouseover="hoverA = true"
+            @mouseleave="hoverA = false"
+            :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
+            style="position: absolute;">
+                <p v-if="hoverA == true" style="font-size: 144px; color: white; background: black; opacity: 0.5;" 
+                class="text-center w-100 h-100">{{ text.textImageA }}</p>
+            </div>
+  
+  
           </b-col>
-          <b-col  xl="6" lg="12" md="12" sm="12">
-            <div @click="submitAnswer('B')">
+          <b-col  xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center align-items-center">
+            <div 
+              :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
+              :style="[ hoverB ? {opacity: 0.9} : {opacity: 1.0} ]">
             <maps
               class="my-2"
               :resetToInitial="false"
@@ -60,11 +77,24 @@
               :scroll-to-zoom="false"
               :hide-interaction="true"
               :hide-geo-search="true"
-              style="height: 700px; width: 700px; "
+              :style="{ height: imgSize + 'px' , width: imgSize + 'px'}"
               :mapSettings="mapSettingsB"
               :taskLoaded="pybossa.taskLoaded"
             ></maps>
             </div>
+  
+  
+            <!-- Hover Effect B -->
+            <div 
+            @click="submitAnswer('B')" 
+            @mouseover="hoverB = true"
+            @mouseleave="hoverB = false"
+            :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
+            style="position: absolute;">
+                <p v-if="hoverB == true" style="font-size: 144px; color: white; background: black; opacity: 0.5;" 
+                class="text-center w-100 h-100">{{ text.textImageB }}</p>
+            </div>
+   
           </b-col>
   
         </b-row>
@@ -77,18 +107,20 @@
         <!-- Form zone -->
         <b-row align-h="center">
         
-          <b-col xl="6" lg="8" md="8" sm="12" class="d-flex justify-content-center text-center" >
-  
+          <b-col xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center text-center" >
             <!-- Left button -->
-            <b-button block size="lg" @click="submitAnswer('A')" variant="success" class="m-3"
-              >First
-            </b-button>
-            
-            <!-- Right button -->
-            <b-button block size="lg" @click="submitAnswer('B')" variant="success" class="m-3"
-              > Last
+            <b-button size="lg" :style="{width: imgSize + 'px'}" style="font-size: 24px" @click="submitAnswer('A')" variant="success" class="m-3"
+              >{{ text.textImageA }}
             </b-button>
           </b-col>
+            
+          <b-col xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center text-center" >
+            <!-- Right button -->
+            <b-button size="lg" :style="{width: imgSize + 'px'}" style="font-size: 24px" @click="submitAnswer('B')" variant="success" class="m-3"
+              > {{ text.textImageB }}
+            </b-button>
+            </b-col>
+          
   
         </b-row>
   
@@ -209,12 +241,18 @@
         area:{"latlngs":[]},
         answers: [],
         zoom: 15,
+        imgSize: 700,
+        hoverA: false,
+        hoverB: false,
+        color: 'black',
         showAlert: false,
         questionList: [],
         translations: {
           "de": {
             task: " Please click on the most wild river. ",
             soc_skip: "Start",
+            textImageA: "A",
+            textImageB: "B",
             soc_continue: "Continue",
             soc_back: "Back",
             soc_greeting: "Wild river match",
@@ -225,10 +263,11 @@
             soc_consent_list_2: "had enough time to decide on my participation in the study.",
             soc_consent_list_3: "voluntarily participate in the study and agree to my personal data being used as described below.",
             howto_title: "How-To",
-            howto_video_url: "https://polybox.ethz.ch/index.php/s/NIc3mPbapC9Rj5q",
+            howto_video_url: "https://www.youtube.com/watch?v=JGO5SoiGyMc",
             howto_video_title: "How-To Video",
-            howto_summary: "Welcome onboard! Imagine you are flying over the most beautiful rivers! Support us to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!",
-            howto_para01: "Please compare the two images of river, and choose the more wild (natural) one by <<clicking on>> the image directly.",
+            howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
+            Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!",
+            howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by <<clicking on>> the image directly.",
             howto_para02: "By Wild river, we mean the rivers are still remining undisturbed and most natural state.",
             howto_link_description: "Here you can read our",
             howto_link_url: "",
@@ -312,5 +351,5 @@
         pybossa: {
           required: true,
         },
-      }
+      }, 
     }
