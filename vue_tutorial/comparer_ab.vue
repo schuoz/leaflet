@@ -197,6 +197,10 @@
                           <li>{{ text.soc_consent_list_3 }}</li>
                         </ul>
                   </b-card-text>
+                  <b-card-text>
+                        <h4>{{ text.soc_privacy_title }}</h4>
+                        <p>{{ text.soc_privacy_p1 }}</p>
+                  </b-card-text>
               </b-tab>
             </b-tabs>
         </b-card>
@@ -262,16 +266,20 @@
             soc_consent_list_1: "have heard/read and understood the study information.",
             soc_consent_list_2: "had enough time to decide on my participation in the study.",
             soc_consent_list_3: "voluntarily participate in the study and agree to my personal data being used as described below.",
+            soc_privacy_p1: "Participants' information will be handled with the utmost confidentiality. All data collected, including but not limited to demographic details, responses to survey questions, 
+            and any other pertinent information, will be securely stored and accessible only to authorized personnel involved in the research. Your personal identity will be kept strictly confidential, and any published results will be presented in aggregate form, 
+            ensuring that individual participants cannot be identified. Furthermore, your data will not be shared with any third parties 
+            and will only be used for the specific research purposes outlined in the introduction page prior to participating in the study.",
             howto_title: "How-To",
-            howto_video_url: "https://www.youtube.com/watch?v=JGO5SoiGyMc",
+            howto_video_url: "https://www.youtube.com/embed/U44Q2lvQN4A?si=0BpG0EDgX-ibrI8x",
             howto_video_title: "How-To Video",
             howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
             Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!",
             howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by <<clicking on>> the image directly.",
             howto_para02: "By Wild river, we mean the rivers are still remining undisturbed and most natural state.",
             howto_link_description: "Here you can read our",
-            howto_link_url: "",
-            howto_link_text: "Wild river Definition",
+            howto_link_url: "https://ele.ethz.ch/research/technology-modelling/satellite4biodiversity-.html",
+            howto_link_text: "Wild river Definition and more about our project",
             submit_btn: "Next",
             skip_btn: "Skip",
             howto_btn: "How-To",
