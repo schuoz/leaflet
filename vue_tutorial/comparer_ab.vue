@@ -136,14 +136,38 @@
           <!-- <p class="mt-2">You are working now on task: <b-badge variant="warning">{{ task.id }}</b-badge></p>-->
           <p class="mt-2">
             {{$t('template-editor-text-2')}}:
-            <b-badge variant="primary">{{ pybossa.userProgress.done }}</b-badge>
+            <b-badge variant="primary">{{ userProgressAdapted }}</b-badge>
             {{$t('template-editor-text-2a')}}
-            <b-badge variant="primary">{{ pybossa.userProgress.total }}</b-badge>
+            <b-badge variant="primary">{{ taskSlice }}</b-badge>
             {{$t('template-editor-text-3')}}
           </p>
   
-            <b-progress :value="pybossa.userProgressInPercent" :max="100"></b-progress>
+            <b-progress :value="userProgressAdapted / taskSlice * 100" :max="100"></b-progress>
+  
           </b-col>
+  
+  
+        <b-modal 
+          v-model="modalProgressShow" @hidden="if(!modalQuit){modalFlag = false}">
+          <b-card no-body class="border-0 text-center">
+            <b-card-text>
+              <p>Thank you for participating!</p>
+              <p>You finished <strong>{{ pybossa.userProgress.done }}</strong> tasks.</p>
+              <p>Would you like more tasks?</p>
+            </b-card-text>
+          </b-card>
+          <template #modal-footer>
+              <b-button variant="light" @click="modalQuit = true">
+                No, thank you.
+              </b-button>
+              <b-button variant="success" @click="modalFlag = false">
+                Yes!
+              </b-button>
+        </template>
+        </b-modal>
+  
+  
+  
   
   
           <!-- Modal for survey -->
@@ -239,9 +263,11 @@
       data: () => { return {
         visible: false,
         modalShow: true,
+        modalQuit: false,
+        modalFlag: false,
+        taskSlice: 100,
         tabIndex: 0,
         questions:[],
-        markedPlaces:[],
         area:{"latlngs":[]},
         answers: [],
         zoom: 15,
@@ -293,6 +319,7 @@
         submitAnswer: function(answer){
             this.answers = answer;
             this.submit();
+            if (this.userProgressLimited != 0){this.modalFlag = true; this.modalQuit = false;};
         },
         decTabIndex: function(){
           if (this.tabIndex > 0) {this.tabIndex--;}
@@ -307,6 +334,7 @@
         closeModal: function(){
           this.modalShow = false;
         },
+        
         submit: function(){this.isFormValid()?(this.pybossa.saveTask(this.answers),this.initialize()):this.showAlert=!0},
         skip: function(){this.pybossa.skip(),this.initialize()},
         isFormValid: function(){var t=this,e=!0;return this.questionList.every(function(s){var i=t.answers.find(function(t){return t.qid==s.id})||[];return!(s.required&&(!i.value||i.value.length<=0))||(e=!1,!1)}),e},
@@ -315,7 +343,15 @@
       
     
         computed: {
-          
+          userProgressLimited: function(){return this.pybossa.userProgress.done % this.taskSlice;},
+          userProgressAdapted: function(){
+            if (this.userProgressLimited == 0 && this.modalFlag){
+              return this.taskSlice
+            } else {
+              return this.userProgressLimited;
+            }
+          },
+          modalProgressShow: function(){return !this.modalQuit && this.modalFlag && this.userProgressLimited == 0},
           task: function(){return this.pybossa.task},
           taskInfo: function(){return this.task.info},
           text: function(){return this.translations.de},
