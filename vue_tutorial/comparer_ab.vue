@@ -59,7 +59,7 @@
             @mouseleave="hoverA = false"
             :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
             style="position: absolute;">
-                <p v-if="hoverA == true" style="font-size: 144px; color: white; background: black; opacity: 0.5;" 
+                <p v-if="hoverA == true" style="font-size: 144px; color: white; background: black; opacity: 0.1;" 
                 class="text-center w-100 h-100">{{ text.textImageA }}</p>
             </div>
   
@@ -142,7 +142,7 @@
             {{$t('template-editor-text-3')}}
           </p>
   
-            <b-progress :value="userProgressAdapted / taskSlice * 100" :max="100"></b-progress>
+            <b-progress :value="userProgressAdapted / taskSlice * 30" :max="30"></b-progress>
   
           </b-col>
   
@@ -182,6 +182,7 @@
               <b-tab :title="text.howto_btn">
                 <b-card-text> 
                     <p>{{ text.howto_summary }}</p>
+                    <p>{{ text.howto_summary02 }}</p>
                 </b-card-text> 
                   <b-embed
                     type="iframe"
@@ -195,7 +196,6 @@
                   <b-card-text class="mt-3"> 
                     <h5>{{ text.howto_title }}</h5>
                     <p>{{ text.howto_para01 }}</p>
-                    <p>{{ text.howto_para02 }}</p>
                     <p>
                       {{ text.howto_link_description }}
                       <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
@@ -265,7 +265,7 @@
         modalShow: true,
         modalQuit: false,
         modalFlag: false,
-        taskSlice: 100,
+        taskSlice: 30,
         tabIndex: 0,
         questions:[],
         area:{"latlngs":[]},
@@ -300,9 +300,9 @@
             howto_video_url: "https://www.youtube.com/embed/U44Q2lvQN4A?si=0BpG0EDgX-ibrI8x",
             howto_video_title: "How-To Video",
             howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
-            Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!",
-            howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by <<clicking on>> the image directly.",
-            howto_para02: "By Wild river, we mean the rivers are still remining undisturbed and most natural state.",
+            ",
+            howto_summary02: "Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!", 
+            howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by <<clicking on>> the image directly.", 
             howto_link_description: "Here you can read our",
             howto_link_url: "https://ele.ethz.ch/research/technology-modelling/satellite4biodiversity-.html",
             howto_link_text: "Wild river Definition and more about our project",
