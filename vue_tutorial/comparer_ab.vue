@@ -31,23 +31,16 @@
                 </b-card-text>
             </b-card>
         </b-row>
-        <b-row align-h="center" class="mt-3 mb-3">
-            <b-card bg-variant="light" class="border-0">
-                <b-card-text :id="taskInfo.ID" >
-                      <h4>{{ text.soc_consent_title }}</h4>
-                </b-card-text>
-            </b-card>
-        </b-row>
 
         <b-row>
         <!-- right columns - Media -->
         <b-col xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center align-items-center">
-
         
         <div 
         :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
         :style="[ hoverA ? { border: 'black solid 5px'} : {border: 'white solid 5px'} ]">
           <maps
+            class="my-2"
             :resetToInitial="false"
             :hide-icons="true"
             :hide-labels="true"
@@ -75,8 +68,9 @@
         <b-col  xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center align-items-center">
           <div 
             :style="{height: imgSize + 'px' , width: imgSize + 'px'}" 
-        :style="[ hoverB ? { border: 'black solid 5px'} : {border: 'white solid 5px'} ]">
+            :style="[ hoverB ? { border: 'black solid 5px'} : {border: 'white solid 5px'} ]">
           <maps
+            class="my-2"
             :resetToInitial="false"
             :hide-icons="true"
             :hide-labels="true"
@@ -126,13 +120,7 @@
             > {{ text.textImageB }}
           </b-button>
           </b-col>
-                    
-          <b-col xl="6" lg="12" md="12" sm="12" class="d-flex justify-content-center text-center" >
-          <!-- Right button -->
-          <iframe width="300" height="200" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            >
-          </iframe>
-          </b-col>
+        
 
       </b-row>
 
@@ -193,8 +181,15 @@
         <b-tabs v-model="tabIndex" card>
             <b-tab :title="text.howto_btn">
               <b-card-text> 
+                  <h5>{{ text.howto_en }}</h5>
                   <p>{{ text.howto_summary }}</p>
                   <p>{{ text.howto_summary02 }}</p>
+                  <h5>{{ text.howto_fr }}</h5>
+                  <p>{{ text.howto_summary_fr }}</p>
+                  <p>{{ text.howto_summary_fr02 }}</p>
+                  <h5>{{ text.howto_de }}</h5>
+                  <p>{{ text.howto_summary_de }}</p>
+                  <p>{{ text.howto_summary_de02 }}</p>
               </b-card-text> 
                 <b-embed
                   type="iframe"
@@ -208,8 +203,18 @@
                 <b-card-text class="mt-3"> 
                   <h5>{{ text.howto_title }}</h5>
                   <p>{{ text.howto_para01 }}</p>
+                  <p>{{ text.howto_para_fr }}</p>
+                  <p>{{ text.howto_para_de }}</p>
                   <p>
                     {{ text.howto_link_description }}
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
+                  </p>
+                  <p>
+                    {{ text.howto_link_description_fr }}
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
+                  </p>
+                  <p>
+                    {{ text.howto_link_description_de }}
                     <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                   </p>
               </b-card-text> 
@@ -309,15 +314,29 @@
           ensuring that individual participants cannot be identified. Furthermore, your data will not be shared with any third parties 
           and will only be used for the specific research purposes outlined in the introduction page prior to participating in the study.",
           howto_title: "How-To",
-          howto_video_url: "https://www.youtube.com/embed/U44Q2lvQN4A?si=0BpG0EDgX-ibrI8x",
+          howto_video_url: "https://www.youtube.com/embed/5r2_TihkXUY?si=yzz2-cQAEjlu4BGS",
           howto_video_title: "How-To Video",
+          howto_en: "English",
+          howto_fr: "Français",
+          howto_de: "Deutsch",
           howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
           ",
           howto_summary02: "Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!", 
-          howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by <<clicking on>> the image directly.", 
-          howto_link_description: "Here you can read our",
-          howto_link_url: "https://ele.ethz.ch/research/technology-modelling/satellite4biodiversity-.html",
-          howto_link_text: "Wild river Definition and more about our project",
+          howto_summary_de: "Hallo Flussliebhaber, willkommen an Bord! Wir fliegen jetzt über die schönsten Flüsse, lasst uns ein paar Fotos von den schönen und wilden Flusslandschaften machen. Macht euch bereit! Und wir heben ab!
+          ",
+          howto_summary_de02: "Wilder Fluss? Ein wilder Fluss ist ein Flussabschnitt, der nicht gestört wird und dessen ökologische Werte sehr wichtig sind. Wir brauchen Ihre Unterstützung, um den Algorithmus zur Erkennung der wildesten Flussabschnitte anhand von Satellitenbildern zu verbessern und Schutzpläne zu erstellen!", 
+          howto_summary_fr: "Bonjour aux amoureux des rivières, bienvenue à bord ! Nous survolons maintenant les plus belles rivières, prenons quelques photos des paysages fluviaux magnifiques et sauvages. Préparez-vous ! Et nous décollons!
+          ",
+          howto_summary_fr02: "Une rivière sauvage ? Une rivière sauvage est un tronçon de rivière qui n'a pas été perturbé et dont les valeurs écologiques sont cruciales. Nous avons besoin de votre aide pour améliorer l'algorithme de détection des tronçons de rivière les plus sauvages à partir d'images satellite et pour élaborer des plans de conservation!", 
+          
+          howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by clicking on the image directly.", 
+          howto_para_fr: "Comparez les deux images de la rivière et choisissez la plus sauvage (naturelle) en cliquant directement sur l'image.", 
+          howto_para_de: "Bitte vergleichen Sie die beiden Bilder des Flusses und wählen Sie das wildeste (natürlichste) Bild, indem Sie direkt auf das Bild klicken.", 
+          howto_link_description: " you can read more about our project. ",
+          howto_link_description_fr: "Here you can read ",
+          howto_link_description_de: "Hier können Sie mehr über unser Projekt lesen.",
+          howto_link_url: "https://ele.ethz.ch/research/technology-modelling/citizen-river.html",
+          howto_link_text: "Here",
           submit_btn: "Next",
           skip_btn: "Skip",
           howto_btn: "How-To",
@@ -333,7 +352,6 @@
           this.submit();
           if (this.userProgressLimited != 0){this.modalFlag = true; this.modalQuit = false;};
       },
-      something: function(){alert('aaaqaaaaaaaaa')},
       decTabIndex: function(){
         if (this.tabIndex > 0) {this.tabIndex--;}
       },
