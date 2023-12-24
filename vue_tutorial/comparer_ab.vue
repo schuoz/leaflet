@@ -206,16 +206,16 @@
                   <p>{{ text.howto_para_fr }}</p>
                   <p>{{ text.howto_para_de }}</p>
                   <p>
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                     {{ text.howto_link_description }}
-                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                   </p>
                   <p>
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text_fr}}</a>
                     {{ text.howto_link_description_fr }}
-                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                   </p>
                   <p>
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text_de }}</a>
                     {{ text.howto_link_description_de }}
-                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                   </p>
               </b-card-text> 
             </b-tab>
@@ -228,6 +228,7 @@
                 <b-card-text>
                       <h4>{{ text.soc_withdraw_title }}</h4>
                       <p>{{ text.soc_withdraw_p1 }}</p>
+                      <p>{{ text.soc_withdraw_p_de }}</p>
                 </b-card-text>
                 <b-card-text>
                   <h4>{{ text.soc_consent_title }}</h4>
@@ -241,6 +242,19 @@
                 <b-card-text>
                       <h4>{{ text.soc_privacy_title }}</h4>
                       <p>{{ text.soc_privacy_p1 }}</p>
+                </b-card-text>
+                <b-card-text>
+                  <h4>{{ text.soc_consent_title_de }}</h4>
+                      {{ text.soc_consent_list_header_de }}
+                      <ul style="list-style-type: disc; margin-left: 30px">
+                        <li>{{ text.soc_consent_list_1_de }}</li>
+                        <li>{{ text.soc_consent_list_2_de }}</li>
+                        <li>{{ text.soc_consent_list_3_de }}</li>
+                      </ul>
+                </b-card-text>
+                <b-card-text>
+                      <h4>{{ text.soc_privacy_title }}</h4>
+                      <p>{{ text.soc_privacy_p1_de }}</p>
                 </b-card-text>
             </b-tab>
           </b-tabs>
@@ -313,6 +327,16 @@
           and any other pertinent information, will be securely stored and accessible only to authorized personnel involved in the research. Your personal identity will be kept strictly confidential, and any published results will be presented in aggregate form, 
           ensuring that individual participants cannot be identified. Furthermore, your data will not be shared with any third parties 
           and will only be used for the specific research purposes outlined in the introduction page prior to participating in the study.",
+          soc_withdraw_p_de: "Ihre Teilnahme an der Studie ist freiwillig.",
+          soc_consent_title_de: "Einverständniserklärung",
+          soc_consent_list_header_de: "Mit der Teilnahme an der Studie bestätige ich, dass ich:",
+          soc_consent_list_1_de: "die Studieninformationen gehört/gelesen und verstanden habe.",
+          soc_consent_list_2_de: "genügend Zeit hatte, mich für meine Teilnahme an der Studie zu entscheiden.",
+          soc_consent_list_3_de: "freiwillig an der Studie teilnehme und damit einverstanden bin, dass meine persönlichen Daten wie unten beschrieben verwendet werden.",
+          soc_privacy_p1_de: "Die Daten der Teilnehmer werden mit äußerster Vertraulichkeit behandelt. Alle gesammelten Daten, einschließlich, aber nicht beschränkt auf demografische Angaben, 
+          Antworten auf Umfragefragen, und andere relevante Informationen, werden sicher gespeichert und sind nur autorisiertem Personal zugänglich, das an der Forschung beteiligt ist. 
+          Ihre persönliche Identität wird streng vertraulich behandelt, und alle veröffentlichten Ergebnisse werden in zusammengefasster Form dargestellt, um sicherzustellen, dass einzelne Teilnehmer nicht identifiziert werden können. 
+          Außerdem werden Ihre Daten nicht an Dritte weitergegeben und nur für die spezifischen Forschungszwecke verwendet, die auf der Einführungsseite vor der Teilnahme an der Studie beschrieben sind.",
           howto_title: "How-To",
           howto_video_url: "https://www.youtube.com/embed/5r2_TihkXUY?si=yzz2-cQAEjlu4BGS",
           howto_video_title: "How-To Video",
@@ -322,9 +346,9 @@
           howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
           ",
           howto_summary02: "Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!", 
-          howto_summary_de: "Hallo Flussliebhaber, willkommen an Bord! Wir fliegen jetzt über die schönsten Flüsse, lasst uns ein paar Fotos von den schönen und wilden Flusslandschaften machen. Macht euch bereit! Und wir heben ab!
+          howto_summary_de: "Hallo Flussliebhaber, willkommen an Bord! Wir werden jetzt gemeinsam über wunderschöne Flüsse fliegen und beeindruckende, wilde Flusslandschaften fotografieren. Macht euch bereit, wir heben ab!
           ",
-          howto_summary_de02: "Wilder Fluss? Ein wilder Fluss ist ein Flussabschnitt, der nicht gestört wird und dessen ökologische Werte sehr wichtig sind. Wir brauchen Ihre Unterstützung, um den Algorithmus zur Erkennung der wildesten Flussabschnitte anhand von Satellitenbildern zu verbessern und Schutzpläne zu erstellen!", 
+          howto_summary_de02: "Wildflüsse? Wildflüsse sind Flussabschnitte, die nicht gestört werden und daher einen unglaublich hohen ökologischen Wert haben. Um zukünftig bessere Schutzpläne erstellen zu können, brauchen wir nun Ihre wertvolle Unterstützung, um einen Algorithmus zur Erkennung von wilden Flussabschnitten anhand von Satellitenbildern zu verbessern.", 
           howto_summary_fr: "Bonjour aux amoureux des rivières, bienvenue à bord ! Nous survolons maintenant les plus belles rivières, prenons quelques photos des paysages fluviaux magnifiques et sauvages. Préparez-vous ! Et nous décollons!
           ",
           howto_summary_fr02: "Une rivière sauvage ? Une rivière sauvage est un tronçon de rivière qui n'a pas été perturbé et dont les valeurs écologiques sont cruciales. Nous avons besoin de votre aide pour améliorer l'algorithme de détection des tronçons de rivière les plus sauvages à partir d'images satellite et pour élaborer des plans de conservation!", 
@@ -333,10 +357,12 @@
           howto_para_fr: "Comparez les deux images de la rivière et choisissez la plus sauvage (naturelle) en cliquant directement sur l'image.", 
           howto_para_de: "Bitte vergleichen Sie die beiden Bilder des Flusses und wählen Sie das wildeste (natürlichste) Bild, indem Sie direkt auf das Bild klicken.", 
           howto_link_description: " you can read more about our project. ",
-          howto_link_description_fr: "Here you can read ",
-          howto_link_description_de: "Hier können Sie mehr über unser Projekt lesen.",
+          howto_link_description_fr: ", vous pouvez en savoir plus sur notre projet. ",
+          howto_link_description_de: " können Sie mehr über unser Projekt lesen.",
           howto_link_url: "https://ele.ethz.ch/research/technology-modelling/citizen-river.html",
           howto_link_text: "Here",
+          howto_link_text_fr: "Ici",
+          howto_link_text_de: "Hier",
           submit_btn: "Next",
           skip_btn: "Skip",
           howto_btn: "How-To",
