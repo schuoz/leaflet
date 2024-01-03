@@ -367,13 +367,14 @@
           soc_privacy_p1_es: "Los datos de los participantes serán tratados con la máxima confidencialidad.  Toda la información recopilada, incluyendo, entre otros, los datos demográficos, las respuestas a las preguntas de la encuesta y otra información pertinente, se almacenarán de forma segura.
            Solo el personal autorizado que participe en la investigación tendrá acceso a estos datos. 
            La Identidad personal se mantendrá estrictamente confidencial y todos los resultados publicados se presentarán de forma resumida para garantizar que no se pueda identificar a los participantes individuales.
-            Además, sus datos no se compartirán con terceros y sólo se utilizarán para los fines específicos de la investigación descritos en la página introductoria previa a la participación en el estudio."
+            Además, sus datos no se compartirán con terceros y sólo se utilizarán para los fines específicos de la investigación descritos en la página introductoria previa a la participación en el estudio.",
+          howto_title: "How-To",
           howto_video_url: "https://www.youtube.com/embed/5r2_TihkXUY?si=yzz2-cQAEjlu4BGS",
           howto_video_title: "How-To Video",
           howto_en: "English",
           howto_fr: "Français",
           howto_de: "Deutsch",
-          howto_es: "Espa",
+          howto_es: "Español",
           howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
           ",
           howto_summary02: "Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!", 
