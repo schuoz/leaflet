@@ -190,6 +190,9 @@
                   <h5>{{ text.howto_de }}</h5>
                   <p>{{ text.howto_summary_de }}</p>
                   <p>{{ text.howto_summary_de02 }}</p>
+                  <h5>{{ text.howto_es }}</h5>
+                  <p>{{ text.howto_summary_es }}</p>
+                  <p>{{ text.howto_summary_es02 }}</p>
               </b-card-text> 
                 <b-embed
                   type="iframe"
@@ -205,6 +208,7 @@
                   <p>{{ text.howto_para01 }}</p>
                   <p>{{ text.howto_para_fr }}</p>
                   <p>{{ text.howto_para_de }}</p>
+                  <p>{{ text.howto_para_es }}</p>
                   <p>
                     <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text }}</a>
                     {{ text.howto_link_description }}
@@ -216,6 +220,10 @@
                   <p>
                     <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text_de }}</a>
                     {{ text.howto_link_description_de }}
+                  </p>
+                  <p>
+                    <a :href="text.howto_link_url" target=”_blank”>{{ text.howto_link_text_es }}</a>
+                    {{ text.howto_link_description_es }}
                   </p>
               </b-card-text> 
             </b-tab>
@@ -255,6 +263,19 @@
                 <b-card-text>
                       <h4>{{ text.soc_privacy_title }}</h4>
                       <p>{{ text.soc_privacy_p1_de }}</p>
+                </b-card-text>
+                <b-card-text>
+                  <h4>{{ text.soc_consent_title_es }}</h4>
+                      {{ text.soc_consent_list_header_es }}
+                      <ul style="list-style-type: disc; margin-left: 30px">
+                        <li>{{ text.soc_consent_list_1_es }}</li>
+                        <li>{{ text.soc_consent_list_2_es }}</li>
+                        <li>{{ text.soc_consent_list_3_es }}</li>
+                      </ul>
+                </b-card-text>
+                <b-card-text>
+                      <h4>{{ text.soc_privacy_title }}</h4>
+                      <p>{{ text.soc_privacy_p1_es }}</p>
                 </b-card-text>
             </b-tab>
           </b-tabs>
@@ -337,12 +358,22 @@
           Antworten auf Umfragefragen, und andere relevante Informationen, werden sicher gespeichert und sind nur autorisiertem Personal zugänglich, das an der Forschung beteiligt ist. 
           Ihre persönliche Identität wird streng vertraulich behandelt, und alle veröffentlichten Ergebnisse werden in zusammengefasster Form dargestellt, um sicherzustellen, dass einzelne Teilnehmer nicht identifiziert werden können. 
           Außerdem werden Ihre Daten nicht an Dritte weitergegeben und nur für die spezifischen Forschungszwecke verwendet, die auf der Einführungsseite vor der Teilnahme an der Studie beschrieben sind.",
-          howto_title: "How-To",
+          soc_withdraw_p_es: "Ihre Teilnahme an der Studie ist freiwillig.",
+          soc_consent_title_es: "Declaración de consentimiento",
+          soc_consent_list_header_es: "Al participar en el estudio, confirmo quee oído/leído y comprendido:",
+          soc_consent_list_1_es: "comprendido la información proporcionada parael estudio.",
+          soc_consent_list_2_es: "He tenido tiempo suficiente para decidir participar en él.",
+          soc_consent_list_3_es: "participo voluntariamente en el estudio y acepto que mis datos personales se utilicen tal como se describe a continuación.",
+          soc_privacy_p1_es: "Los datos de los participantes serán tratados con la máxima confidencialidad.  Toda la información recopilada, incluyendo, entre otros, los datos demográficos, las respuestas a las preguntas de la encuesta y otra información pertinente, se almacenarán de forma segura.
+           Solo el personal autorizado que participe en la investigación tendrá acceso a estos datos. 
+           La Identidad personal se mantendrá estrictamente confidencial y todos los resultados publicados se presentarán de forma resumida para garantizar que no se pueda identificar a los participantes individuales.
+            Además, sus datos no se compartirán con terceros y sólo se utilizarán para los fines específicos de la investigación descritos en la página introductoria previa a la participación en el estudio."
           howto_video_url: "https://www.youtube.com/embed/5r2_TihkXUY?si=yzz2-cQAEjlu4BGS",
           howto_video_title: "How-To Video",
           howto_en: "English",
           howto_fr: "Français",
           howto_de: "Deutsch",
+          howto_es: "Espa",
           howto_summary: "Hi river lovers, welcome onboard! We are now flying over the most beautiful rivers, let's take some pictures for the beautiful and wild riverscapes. Get ready! And we are taking off!
           ",
           howto_summary02: "Wild river? Wild river is the river section that remains not disturbed and have very crucial ecological values. We need your support to improve the algorithm in detecting the most wild river sections from satellite image and making conservation plans!", 
@@ -352,17 +383,30 @@
           howto_summary_fr: "Bonjour aux amoureux des rivières, bienvenue à bord ! Nous survolons maintenant les plus belles rivières, prenons quelques photos des paysages fluviaux magnifiques et sauvages. Préparez-vous ! Et nous décollons!
           ",
           howto_summary_fr02: "Une rivière sauvage ? Une rivière sauvage est un tronçon de rivière qui n'a pas été perturbé et dont les valeurs écologiques sont cruciales. Nous avons besoin de votre aide pour améliorer l'algorithme de détection des tronçons de rivière les plus sauvages à partir d'images satellite et pour élaborer des plans de conservation!", 
+          howto_summary_es: "¡Hola amantes de los ríos!, ¡Les doy la cordial bienvenida a bordo! En esta emocionante travesía,volaremos juntos sobre hermosos ríos y fotografiaremos sus impresionantes y salvajes paisajes fluviales. ¡Prepárense para despegar hacia una experiencia inolvidable! ¿Te atreves 
+          a explorar los misterios de los ríos salvajes, esos intrincados cursos fluviales que guardan secretos inexplorados? 
+          Bienvenido a nuestro emocionante juego científico, donde tú, sí, tú, puedes desempeñar un papel crucial en la conservación del ecosistema.
+          Imagínate deslizándote por la corriente de ríos inexplorados, donde la naturaleza salvaje se despliega en su máxima expresión. 
+          Pero este no es un simple paseo; estamos en una misión importante.",
+          howto_summary_es02: "¿Ríos salvajes? Los ríos salvajes son tramos fluviales que no han sido perturbados y que, por tanto, 
+          tienen un valor ecológico increíblemente alto. Ahora necesitamos tu valiosa ayuda para mejorar un algoritmo de reconocimiento de tramos de ríos salvajes mediante imágenes por satélite, 
+          para poder elaborar mejores planes de conservación en el futuro. ¿Por qué es tan crucial? Porque estos ríos salvajes son tesoros ecológicos, vírgenes y llenos de vida, 
+          y necesitamos salvaguardarlos para las generaciones futuras. Sumérgete en nuestro fascinante proyecto, 
+          donde cada clic cuenta y cada imagen por satélite es una ventana a un mundo natural que clama por nuestra atención. ¡La aventura te espera! ", 
           
           howto_para01: "Please compare the two images of river, and choose the most wild (natural) one by clicking on the image directly.", 
           howto_para_fr: "Comparez les deux images de la rivière et choisissez la plus sauvage (naturelle) en cliquant directement sur l'image.", 
           howto_para_de: "Bitte vergleichen Sie die beiden Bilder des Flusses und wählen Sie das wildeste (natürlichste) Bild, indem Sie direkt auf das Bild klicken.", 
+          howto_para_es: "Compare las dos imágenes de río y elija la más salvaje (natural) haciendo clic directamente en la imagen.", 
           howto_link_description: " you can read more about our project. ",
           howto_link_description_fr: ", vous pouvez en savoir plus sur notre projet. ",
           howto_link_description_de: " können Sie mehr über unser Projekt lesen.",
+          howto_link_description_es: " puede leer más sobre nuestro proyecto.",
           howto_link_url: "https://ele.ethz.ch/research/technology-modelling/citizen-river.html",
           howto_link_text: "Here",
           howto_link_text_fr: "Ici",
           howto_link_text_de: "Hier",
+          howto_link_text_es: "Aquí",
           submit_btn: "Next",
           skip_btn: "Skip",
           howto_btn: "How-To",
