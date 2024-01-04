@@ -297,14 +297,14 @@
             ensuring that individual participants cannot be identified. Furthermore, your data will not be shared with any third parties 
             and will only be used for the specific research purposes outlined in the introduction page prior to participating in the study.",
             howto_title: "如何操作？",
-            howto_video_url: "https://www.youtube.com/embed/U44Q2lvQN4A?si=0BpG0EDgX-ibrI8x",
+            howto_video_url: "https://www.youtube.com/embed/5r2_TihkXUY?si=yzz2-cQAEjlu4BGS",
             howto_video_title: "How-To Video",
-            howto_summary: "各位大自然的爱好者， 大家好！欢迎登机，我是本次航行的机长， 我们现在要出发飞往参观最美丽的河流，准备好你们的相机，让我们在飞机上拍摄一组天然而美丽的河流风景吧！准备好你的相机，我们要出发了！
+            howto_summary: "各位大自然的爱好者，大家好！欢迎登机，我是本次航行的机长， 我们现在要出发飞往参观最美丽的河流，准备好你们的相机，让我们在飞机上拍摄一组天然而美丽的河流风景吧！准备好了吗，我们要出发了！
             ",
-            howto_summary02: "自然河流是什么？自然河流是没有被人为改变和破坏过的河流，这些河流有着非常重要的生态保护意义，对于生物多样性至关重要。我们开发了一项用人工智能从卫星图片中自动探测自然河流的算法，我们需要您的支持，帮助我们改进算法的精确度。 您的贡献将对我们至关重要！", 
-            howto_para01: "请比较稍后两个呈现在你面前的图片，点击那一张具有最天然河流的图片。", 
+            howto_summary02: "天然河流是什么？天然河流是没有被人为改变和破坏过的河流，这些河流有着非常重要的生态保护意义，对于生物多样性至关重要。我们开发了一项用人工智能从卫星图片中自动探测天然河流的算法，我们需要您的支持，帮助我们改进算法的精确度。 您的贡献将对我们至关重要！", 
+            howto_para01: "请比较稍后呈现在你面前的两张图片，点击那一张具有最天然河流的图片。", 
             howto_link_description: "在这里你可以阅读更多",
-            howto_link_url: "https://ele.ethz.ch/research/technology-modelling/satellite4biodiversity-.html",
+            howto_link_url: "https://ele.ethz.ch/research/technology-modelling/citizen-river.html",
             howto_link_text: "天然河流的定义和更多关于我们项目的信息",
             submit_btn: "下一个",
             skip_btn: "跳过",
