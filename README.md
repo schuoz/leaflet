@@ -1,1 +1,1 @@
-# This repo is to building a wild river game portal based on java script
+# This repo is to build a wild river game portal via vue for Citzien Scientists Annotation on Citzen Science Zurich's [Citizen Science Project Builder](https://lab.citizenscience.ch/de/tools/projectbuilder)
